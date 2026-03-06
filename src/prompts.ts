@@ -22,7 +22,7 @@ export function factSweepPrompt(memoryPath: string): string {
     `- Use timestamp headers (### HH:MM)`,
     `- Be concise — facts only, 2-5 lines max`,
     `- Append only, never overwrite existing content`,
-    `If nothing worth storing, reply with only: NO_REPLY`,
+    `After writing (or if nothing worth storing), reply with only: NO_REPLY`,
   ].join('\n');
 }
 
@@ -40,7 +40,7 @@ export function reflectionSweepPrompt(journalPath: string): string {
     `- 1-3 lines max`,
     `Then, if there are also important facts/decisions:`,
     `- Append those to \`memory/${date}.md\` as well`,
-    `If nothing worth storing, reply with only: NO_REPLY`,
+    `After writing (or if nothing worth storing), reply with only: NO_REPLY`,
   ].join('\n');
 }
 
