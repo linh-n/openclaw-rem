@@ -30,10 +30,3 @@ export function isHeartbeatSession(sessionKey: string): boolean {
   return sessionKey.includes(':heartbeat') || sessionKey.includes(':cron:');
 }
 
-/**
- * Detect if a session is a direct/DM session (not a thread or channel).
- * Direct sessions already have heartbeats + pre-compaction flushes — no need to sweep.
- */
-export function isDirectSession(sessionKey: string): boolean {
-  return sessionKey.includes(':direct:');
-}
