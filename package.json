@@ -1,0 +1,23 @@
+{
+  "name": "openclaw-rem",
+  "version": "0.1.0",
+  "description": "REM — Periodic memory consolidation for agent sessions. Like REM sleep — replays the day and decides what to keep.",
+  "license": "MIT",
+  "author": "Maid <maid@maid.rocks>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/linh-n/openclaw-rem"
+  },
+  "keywords": ["openclaw", "plugin", "memory", "agent", "consolidation"],
+  "openclaw": {
+    "extensions": ["./src/index.ts"]
+  },
+  "files": [
+    "src/",
+    "openclaw.plugin.json",
+    "README.md"
+  ],
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

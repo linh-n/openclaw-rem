@@ -1,0 +1,79 @@
+{
+  "id": "openclaw-rem",
+  "name": "REM — Memory Sweep",
+  "description": "Periodic memory consolidation for agent sessions. Like REM sleep — replays the day and decides what to keep.",
+  "version": "0.1.0",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "default": true
+      },
+      "intervalMs": {
+        "type": "number",
+        "default": 1800000,
+        "minimum": 300000,
+        "description": "Sweep interval in ms (default: 30m, min: 5m)"
+      },
+      "activeWindowMs": {
+        "type": "number",
+        "default": 7200000,
+        "minimum": 600000,
+        "description": "Only sweep sessions active within this window (default: 2h)"
+      },
+      "idleCooldownMs": {
+        "type": "number",
+        "default": 300000,
+        "minimum": 60000,
+        "description": "Session must be idle for this long before sweeping (default: 5m, min: 1m)"
+      },
+      "maxSessionsPerTick": {
+        "type": "number",
+        "default": 10,
+        "minimum": 1,
+        "maximum": 50,
+        "description": "Max sessions to sweep per interval"
+      },
+      "memoryPath": {
+        "type": "string",
+        "default": "memory",
+        "description": "Directory for memory files relative to workspace"
+      },
+      "journalPath": {
+        "type": "string",
+        "default": "journal",
+        "description": "Directory for journal files relative to workspace"
+      },
+      "reflection": {
+        "type": "boolean",
+        "default": false,
+        "description": "Enable reflection mode — also prompt for journal entries (opt-in)"
+      },
+      "skipOwnHeartbeats": {
+        "type": "boolean",
+        "default": true,
+        "description": "Don't sweep heartbeat sessions"
+      },
+      "quietHours": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "start": { "type": "string", "default": "23:00" },
+          "end": { "type": "string", "default": "07:00" }
+        }
+      }
+    }
+  },
+  "uiHints": {
+    "enabled": { "label": "Enable REM sweep" },
+    "intervalMs": { "label": "Sweep interval (ms)", "help": "How often to check for sessions needing memory flush" },
+    "activeWindowMs": { "label": "Active window (ms)", "help": "Only sweep sessions with activity in this window" },
+    "idleCooldownMs": { "label": "Idle cooldown (ms)", "help": "Session must be idle this long before sweeping" },
+    "maxSessionsPerTick": { "label": "Max sessions per tick" },
+    "reflection": { "label": "Reflection mode", "help": "Also prompt for journal/emotional entries (companion mode)" },
+    "memoryPath": { "label": "Memory directory", "advanced": true },
+    "journalPath": { "label": "Journal directory", "advanced": true }
+  }
+}
