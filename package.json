@@ -1,6 +1,6 @@
 {
   "name": "openclaw-rem",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "REM — Periodic memory consolidation for agent sessions. Like REM sleep — replays the day and decides what to keep.",
   "license": "MIT",
   "author": "Maid <maid@maid.rocks>",

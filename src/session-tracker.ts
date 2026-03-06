@@ -97,8 +97,7 @@ export function createSessionTracker(stateDir: string, config: RemConfig) {
       // Skip if no messages since last sweep
       if (session.messageCount <= 0) continue;
 
-      // Skip direct/DM sessions — they have their own heartbeats + pre-compaction
-      if (session.sessionKey.includes(':direct:')) continue;
+      // Direct/DM sessions are now included — they need memory sweeps too
 
       // Skip heartbeat sessions if configured
       if (config.skipOwnHeartbeats && session.isHeartbeat) continue;
